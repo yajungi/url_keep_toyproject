@@ -1,0 +1,60 @@
+.goto_top .lnk_top {
+    color: #000;
+    text-align: center;
+}
+
+.goto_top {
+    z-index: 1200;
+    position: relative;
+    background-color: #e9ecef;
+}
+
+.goto_top .lnk_top {
+    display: block;
+    padding: 18px 0 20px;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.goto_top .lnk_top .lnk_top_text {
+    display: inline-block;
+    position: relative;
+    padding-left: 13px;
+}
+
+.goto_top .lnk_top .lnk_top_text:after {
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 9px;
+    height: 11px;
+    background-image: url(../img/spr_book2.png);
+    background-size: 330px 400px;
+    background-repeat: no-repeat;
+    background-position: -299px -26px;
+    content: '';
+}
+
+.footer {
+    z-index: 1200;
+    overflow: hidden;
+    position: relative;
+    background: #e9ecef;
+    font: 0/0 a;
+    word-wrap: break-word;
+}
+
+.footer .copyright {
+    display: block;
+    position: relative;
+}
+
+.footer .copyright {
+    padding-right: 10px;
+    padding-bottom: 15px;
+    font-size: 11px;
+    line-height: 15px;
+    color: #999;
+    text-align: center;
+}
