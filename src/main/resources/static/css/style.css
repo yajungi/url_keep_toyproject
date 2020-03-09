@@ -58,3 +58,55 @@
     color: #999;
     text-align: center;
 }
+
+header {
+    margin: 1%;
+}
+
+ul {
+    margin: 1% 1% 3% 1%;
+    padding: 0;
+    width: auto;
+}
+
+footer {
+    margin: 1%;
+}
+
+.header_title {
+    text-align: center;
+}
+
+.header_title_text {
+    padding: 2%;
+    background-color: whitesmoke;
+    font-size: 200%;
+    color: brown;
+}
+
+.section_url_list {
+    list-style: none;
+    padding: 5% 0 5% 0;
+    background-color: beige;
+    height: auto;
+    text-align: center;
+}
+
+section ul li {
+    display: inline;
+    margin: 1px;
+    padding: 1% 2% 1% 2%;
+    background-color: coral;
+}
+
+.url_text {
+    padding: 0 15% 0 15%;
+}
+
+.content_text {
+    padding: 0 10% 0 10%;
+}
+
+.time_text {
+    padding: 0 5% 0 5%;
+}

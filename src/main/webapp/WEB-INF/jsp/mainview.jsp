@@ -10,13 +10,18 @@
 <body>
 
 <header>
-    <div>
-
+    <div class = "header_title">
+        <p class="header_title_text">유용한 URL 모음</p>
     </div>
 </header>
 
 <section>
-
+    <ul class="section_url_list">
+        <li class="section_number"><span>NO</span></li>
+        <li class="section_url"><span class="url_text">URL</span></li>
+        <li class="section_description"><span class="content_text">내용</span></li>
+        <li class="section_time"><span class="time_text">시간</span></li>
+    </ul>
 </section>
 
 <footer>
