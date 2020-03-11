@@ -1,4 +1,4 @@
-package com.example.toy.link.domain;
+package com.jungi.toy.link.domain;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -38,6 +38,12 @@ public class Link {
     public Link(String url, String content) {
         this.url = url;
         this.content = content;
+    }
+
+    public void updateLink(String url, String content, LocalDateTime modifyTime) {
+        this.url = url;
+        this.content = content;
+        this.modifyTime = modifyTime;
     }
 
     public void removeLink() {

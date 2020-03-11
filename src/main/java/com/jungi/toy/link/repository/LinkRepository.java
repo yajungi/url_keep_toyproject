@@ -1,6 +1,6 @@
-package com.example.toy.link.repository;
+package com.jungi.toy.link.repository;
 
-import com.example.toy.link.domain.Link;
+import com.jungi.toy.link.domain.Link;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LinkRepository extends JpaRepository<Link, Integer> {
