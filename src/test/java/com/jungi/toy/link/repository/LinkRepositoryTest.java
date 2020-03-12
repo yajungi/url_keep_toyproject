@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -43,5 +44,27 @@ public class LinkRepositoryTest {
         assertThat(link.getUrl()).isEqualTo(url);
         assertThat(link.getContent()).isEqualTo(content);
         assertThat(link.getRemoveFlag()).isEqualTo(false);
+    }
+
+    @Test
+    public void checkBaseTimeTest() {
+        //Given
+        String url = "https://github.com";
+        String content = "깃헙홈페이지";
+        LocalDateTime now = LocalDateTime.of(2020,3,12,0, 0, 0);
+
+        linkRepository.save(Link.builder()
+                                .url(url)
+                                .content(content)
+                                .build());
+
+        //When
+        List<Link> links = linkRepository.findAll();
+
+        //Then
+        Link link = links.get(0);
+
+        assertThat(link.getCreateDate()).isAfter(now);
+        assertThat(link.getModifyDate()).isAfter(now);
     }
 }

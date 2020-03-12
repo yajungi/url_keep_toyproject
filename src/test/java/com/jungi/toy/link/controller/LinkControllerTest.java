@@ -12,13 +12,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -51,10 +51,12 @@ public class LinkControllerTest {
                                 .build());
 
         //When & Then
-        this.mockMvc.perform(get("/api/link/{id}", link.getId())
+        this.mockMvc.perform(get("/api/links/{id}", link.getId())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andDo(print());
+                .andDo(print())
+                .andExpect(jsonPath("createDate").exists())
+                .andExpect(jsonPath("modifyDate").exists());
 
         List<Link> links = this.linkRepository.findAll();
 
@@ -77,8 +79,7 @@ public class LinkControllerTest {
         this.mockMvc.perform(post("/api/links")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(link)))
-                    .andExpect(status().isCreated())
-                    .andDo(print());
+                    .andExpect(status().isCreated());
 
         List<Link> links = this.linkRepository.findAll();
 
@@ -106,11 +107,10 @@ public class LinkControllerTest {
                                 .build();
 
         //When & Then
-        this.mockMvc.perform(put("/api/link/{id}", link.getId())
+        this.mockMvc.perform(put("/api/links/{id}", link.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(expectedLink)))
-                .andExpect(status().isOk())
-                .andDo(print());
+                .andExpect(status().isOk());
 
         List<Link> links = this.linkRepository.findAll();
 
