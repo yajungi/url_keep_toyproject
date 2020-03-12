@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @Service
@@ -35,7 +34,7 @@ public class LinkServiceImpl implements LinkService {
         Link link = linkRepository.findById(id)
                                 .orElseThrow(() -> new IllegalArgumentException("해당 링크가 없습니다. id= " + id));
 
-        link.updateLink(linkRequestDto.getUrl(), linkRequestDto.getContent(), LocalDateTime.now());
+        link.updateLink(linkRequestDto.getUrl(), linkRequestDto.getContent());
 
         return id;
     }

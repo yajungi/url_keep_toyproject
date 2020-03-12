@@ -1,20 +1,18 @@
 package com.jungi.toy.link.domain;
 
+import com.jungi.toy.common.BaseTime;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Getter
 @ToString
 @NoArgsConstructor
 @Entity
-public class Link {
+public class Link extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -28,22 +26,15 @@ public class Link {
     @Column(columnDefinition = "boolean default false")
     private Boolean removeFlag = false;
 
-    @CreationTimestamp
-    private LocalDateTime createTime;
-
-    @UpdateTimestamp
-    private LocalDateTime modifyTime;
-
     @Builder
     public Link(String url, String content) {
         this.url = url;
         this.content = content;
     }
 
-    public void updateLink(String url, String content, LocalDateTime modifyTime) {
+    public void updateLink(String url, String content) {
         this.url = url;
         this.content = content;
-        this.modifyTime = modifyTime;
     }
 
     public void removeLink() {

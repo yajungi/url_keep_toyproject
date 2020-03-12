@@ -11,15 +11,15 @@ public class LinkResponseDto {
     private String url;
     private String content;
     private boolean removeFlag;
-    private LocalDateTime createTime;
-    private LocalDateTime modifyTime;
+    private LocalDateTime createDate;
+    private LocalDateTime modifyDate;
 
     public LinkResponseDto(Link link) {
         this.id = link.getId();
         this.url = link.getUrl();
         this.content = link.getContent();
         this.removeFlag = link.getRemoveFlag();
-        this.createTime = link.getCreateTime();
-        this.modifyTime = link.getModifyTime();
+        this.createDate = link.getCreateDate();
+        this.modifyDate = link.getModifyDate();
     }
 }

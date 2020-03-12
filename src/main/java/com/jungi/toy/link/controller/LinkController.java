@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class LinkController {
     private final LinkService linkService;
 
-    @GetMapping("/api/link/{id}")
+    @GetMapping("/api/links/{id}")
     public LinkResponseDto findLinkById(@PathVariable int id) {
         return linkService.findLinkById(id);
     }
@@ -23,7 +23,7 @@ public class LinkController {
         linkService.saveLink(linkRequestDto);
     }
 
-    @PutMapping("/api/link/{id}")
+    @PutMapping("/api/links/{id}")
     public int update(@PathVariable int id, @RequestBody LinkRequestDto linkRequestDto) {
         return linkService.updateLink(id, linkRequestDto);
     }
