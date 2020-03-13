@@ -5,6 +5,8 @@ import com.jungi.toy.link.dto.LinkRequestDto;
 import com.jungi.toy.link.dto.LinkResponseDto;
 import com.jungi.toy.link.repository.LinkRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -13,6 +15,11 @@ import javax.transaction.Transactional;
 @Service
 public class LinkServiceImpl implements LinkService {
     private final LinkRepository linkRepository;
+
+    @Override
+    public Page<Link> findAllLinks(Pageable pageable) {
+        return linkRepository.findAll(pageable);
+    }
 
     @Override
     public LinkResponseDto findLinkById(int id) {
