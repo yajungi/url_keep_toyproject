@@ -4,35 +4,25 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>URL KEEP</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/css/style.css" rel="stylesheet">
 </head>
-<body>
 
+<body>
 <header>
-    <div class = "header_title">
-        <p class="header_title_text">유용한 URL 모음</p>
-    </div>
+    <p class="header_title_text">URL KEEP</p>
 </header>
 
 <section>
-    <ul class="section_url_list">
-        <li class="section_number"><span>NO</span></li>
-        <li class="section_url"><span class="url_text">URL</span></li>
-        <li class="section_description"><span class="content_text">내용</span></li>
-        <li class="section_time"><span class="time_text">시간</span></li>
-    </ul>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/user/links" role="button" class="btn btn-primary">URL 등록</a>
+            </div>
+        </div>
+    </div>
 </section>
-
-<footer>
-    <div class="goto_top">
-        <a href="#" class="lnk_top"><span class="lnk_top_text">TOP</span></a>
-    </div>
-
-    <div class="footer">
-        <span class="copyright">© kim Jungi.</span>
-    </div>
-</footer>
 
 <script type="text/javascript" src="/resources/js/main.js"></script>
 </body>
