@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class LinksWriteController {
-    private static final String LINK_WRITE_VIEW = "linkwriteview";
+    private static final String LINK_WRITE_VIEW = "LinkWriteView";
 
     @GetMapping("/user/links")
     public String getLinkWriteView() {

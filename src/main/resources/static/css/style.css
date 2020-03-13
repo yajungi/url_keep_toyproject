@@ -2,6 +2,11 @@ header {
     margin: 1%;
 }
 
+.table {
+    margin-left: 10px;
+    width: 90%;
+}
+
 .header_title_text {
     padding: 2%;
     background-color: whitesmoke;
@@ -54,4 +59,16 @@ div > input {
 
 #link_form_button_main_font {
     font-size: 1em;
+}
+
+.td_no {
+    width: 5%;
+}
+
+.td_url {
+    width: 40%;
+}
+
+.td_content {
+    width: 40%;
 }

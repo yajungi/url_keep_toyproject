@@ -22,6 +22,28 @@
             </div>
         </div>
     </div>
+    <br/>
+
+    <table class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th>NO</th>
+            <th>URL</th>
+            <th>내용</th>
+            <th>최종수정시간</th>
+        </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="link" items="${links.content}" varStatus="linkStatus">
+                <tr>
+                    <td class="td_no">${linkStatus.count}</td>
+                    <td class="td_url">${link.url}</td>
+                    <td class="td_content">${link.content}</td>
+                    <td>${link.modifyDate}</td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
 </section>
 
 <script type="text/javascript" src="/resources/js/main.js"></script>
