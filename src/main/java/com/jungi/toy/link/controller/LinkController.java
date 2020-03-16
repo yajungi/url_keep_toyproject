@@ -36,7 +36,12 @@ public class LinkController {
     }
 
     @PutMapping("/api/links/{id}")
-    public int update(@PathVariable int id, @RequestBody LinkRequestDto linkRequestDto) {
+    public int updateLink(@PathVariable int id, @RequestBody LinkRequestDto linkRequestDto) {
         return linkService.updateLink(id, linkRequestDto);
+    }
+
+    @DeleteMapping("/api/links/{id}")
+    public void removeLink(@PathVariable int id) {
+        linkService.removeLinkById(id);
     }
 }
