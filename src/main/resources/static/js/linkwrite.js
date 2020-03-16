@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if (xmlHttpRequest.status === STATUS_CREATE && xmlHttpRequest.readyState === xmlHttpRequest.DONE) {
                 alert("LINK가 정상적으로 등록되었습니다.");
             } else if(xmlHttpRequest.status === STATUS_BAD_REQUEST && xmlHttpRequest.readyState === xmlHttpRequest.DONE) {
-                alert("오류가 발생했습니다. 잠시후에 다시 시도해주세요.")
+                alert("오류가 발생했습니다. 잠시후에 다시 시도해주세요.");
             }
         };
 
