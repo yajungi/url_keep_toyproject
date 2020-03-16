@@ -34,6 +34,7 @@ div > input {
 .link_form_button {
     overflow: inherit;
     margin: 10px;
+    margin-left: 5px;
     cursor: pointer;
     height: 2.5em;
     width: 25%;
@@ -45,11 +46,11 @@ div > input {
 }
 
 #link_form_button_main {
-    margin: 10px 10px 0 8px;
+    margin: 10px 15px 0 8px;
     float: left;
     padding: 1.5%;
     height: 2.5em;
-    width: 25%;
+    width: 15%;
     color: black;
     box-sizing: border-box;
     background-color: white;
@@ -61,14 +62,63 @@ div > input {
     font-size: 1em;
 }
 
-.td_no {
+.link_table {
+    margin-left: 5%;
+    width: 90%;
+    text-align: center;
+    border-top: none;
+    border-right: none;
+}
+
+.link_table ul {
+    width: 100%;
+    clear: left;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+    border-top: 1px solid #87CEEB;
+    border-bottom: 1px solid #87CEEB;
+    border-left: 1px solid #87CEEB;
+    display: inline-block;
+    height: auto;
+}
+
+.link_table ul li {
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    margin: 0;
+    padding: 2px 1px;
+    position: relative;
+    border-right: 1px solid #87CEEB;
+}
+
+.link li {
+    overflow: auto;
+    height: 3em;
+}
+
+.no {
     width: 5%;
 }
 
-.td_url {
+.url {
     width: 40%;
 }
 
-.td_content {
-    width: 40%;
+.content {
+    width: 35%;
+}
+
+.time {
+    width: 20%;
+}
+
+#url_remove_button {
+    margin-bottom: 5px;
+}
+
+#input_id {
+    background-color: aliceblue;
 }

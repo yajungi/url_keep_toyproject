@@ -24,26 +24,23 @@
     </div>
     <br/>
 
-    <table class="table table-horizontal table-bordered">
-        <thead class="thead-strong">
-        <tr>
-            <th>NO</th>
-            <th>URL</th>
-            <th>내용</th>
-            <th>최종수정시간</th>
-        </tr>
-        </thead>
-        <tbody>
-            <c:forEach var="link" items="${links.content}" varStatus="linkStatus">
-                <tr>
-                    <td class="td_no">${linkStatus.count}</td>
-                    <td class="td_url">${link.url}</td>
-                    <td class="td_content">${link.content}</td>
-                    <td>${link.modifyDate}</td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+    <div class="link_table">
+        <ul class="title">
+            <li class="col no">NO</li>
+            <li class="url">URL</li>
+            <li class="content">내용</li>
+            <li class="time">최종수정시간</li>
+        </ul>
+
+        <c:forEach var="link" items="${links}">
+            <ul class="link">
+                <li class="col no"><a href="/user/links/${link.id}">${link.id}</a></li>
+                <li class="url"><a href=${link.url}>${link.url}</a></li>
+                <li class="content">${link.content}</li>
+                <li class="time">${link.convertedModifyDate}</li>
+            </ul>
+        </c:forEach>
+    </div>
 </section>
 
 <script type="text/javascript" src="/resources/js/main.js"></script>
