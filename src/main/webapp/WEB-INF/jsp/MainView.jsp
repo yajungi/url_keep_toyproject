@@ -40,9 +40,9 @@
             <li class="time">최종수정시간</li>
         </ul>
 
-        <c:forEach var="link" items="${links}">
+        <c:forEach var="link" items="${links}" varStatus="linkStatus">
             <ul class="link">
-                <li class="col no"><a href="/user/links/${link.id}">${link.id}</a></li>
+                <li class="col no"><a href="/user/links/${link.id}">${linkStatus.count}</a></li>
                 <li class="url"><a href=${link.url}>${link.url}</a></li>
                 <li class="content">${link.content}</li>
                 <li class="time">${link.convertedModifyDate}</li>

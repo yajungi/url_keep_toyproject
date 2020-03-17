@@ -16,7 +16,7 @@
 
 <section>
     <div class="link_form_middle_section">
-        <form id="url_form" action="/">
+        <form id="url_form">
             <div class="link_form_middle_section_layer">
                 <p>
                     <span class="link">
@@ -36,7 +36,7 @@
             <div class="link_form_middle_section_layer">
                 <a href="/" id="link_form_button_main"><span id="link_form_button_main_font">&lt;이전</span></a>
                 <button type="reset" class="link_form_button">내용 지우기</button>
-                <button type="submit" form="url_form" class="link_form_button">등록</button>
+                <button type="submit" id="submit_button" form="url_form" class="link_form_button">등록</button>
             </div>
         </form>
     </div>
