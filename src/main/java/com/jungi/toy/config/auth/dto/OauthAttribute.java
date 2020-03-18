@@ -9,6 +9,8 @@ import java.util.Map;
 
 @Getter
 public class OauthAttribute {
+    private static final String NAVER = "naver";
+
     private Map<String, Object> attribute;
     private String nameAttributeKey;
     private String name;
@@ -25,6 +27,10 @@ public class OauthAttribute {
     }
 
     public static OauthAttribute of(String registrationId, String userAttributeName, Map<String, Object> attribute) {
+        if (NAVER.equals(registrationId)) {
+            return ofNaver("id", attribute);
+        }
+
         return ofGoogle(userAttributeName, attribute);
     }
 
@@ -34,6 +40,18 @@ public class OauthAttribute {
                 .email((String) attribute.get("email"))
                 .picture((String) attribute.get("picture"))
                 .attribute(attribute)
+                .nameAttributeKey(userAttributeName)
+                .build();
+    }
+
+    private static OauthAttribute ofNaver(String userAttributeName, Map<String, Object> attribute) {
+        Map<String, Object> response = (Map<String, Object>) attribute.get("response");
+
+        return OauthAttribute.builder()
+                .name((String) response.get("name"))
+                .email((String) response.get("email"))
+                .picture((String) response.get("profile_image"))
+                .attribute(response)
                 .nameAttributeKey(userAttributeName)
                 .build();
     }

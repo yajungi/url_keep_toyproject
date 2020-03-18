@@ -21,7 +21,8 @@
                 <a href="/user/links" role="button" class="btn btn-primary">URL 등록</a>
                 <c:choose>
                     <c:when test="${empty userName}">
-                        <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google login</a>
+                        <a href="/oauth2/authorization/google" class="btn btn-secondary active" role="button">Google login</a>
+                        <a href="/oauth2/authorization/naver" class="btn btn-success active" role="button">Naver login</a>
                     </c:when>
                     <c:when test="${not empty userName}">
                         <span>${userName}님 안녕하세요 </span><a href="/logout" class="btn btn-info active" role="button">Logout</a>
