@@ -16,29 +16,27 @@
 
 <section>
     <div class="link_form_middle_section">
-        <form id="url_form">
-            <div class="link_form_middle_section_layer">
-                <p>
-                    <span class="link">
-                        <label for="input_link">URL LINK</label>
-                    </span>
-                </p>
-                <input type="url" placeholder="https://www.naver.com/" id="input_link" name="link" required/>
-            </div>
-            <div class="link_form_middle_section_layer">
-                <p>
-                    <span class="link">
-                        <label for="input_description">Description</label>
-                    </span>
-                </p>
-                <input type="text" placeholder="네이버 홈페이지" id="input_description" name="description" required/>
-            </div>
-            <div class="link_form_middle_section_layer">
-                <a href="/" id="link_form_button_main"><span id="link_form_button_main_font">&lt;이전</span></a>
-                <button type="reset" class="link_form_button">내용 지우기</button>
-                <button type="submit" id="submit_button" form="url_form" class="link_form_button">등록</button>
-            </div>
-        </form>
+        <div class="link_form_middle_section_layer">
+            <p>
+                <span class="link">
+                    <label for="input_link">URL LINK</label>
+                </span>
+            </p>
+            <input type="url" placeholder="https://www.naver.com/" id="input_link" name="link" required/>
+        </div>
+        <div class="link_form_middle_section_layer">
+            <p>
+                <span class="link">
+                    <label for="input_description">Description</label>
+                </span>
+            </p>
+            <input type="text" placeholder="네이버 홈페이지" id="input_description" name="description" required/>
+        </div>
+        <div class="link_form_middle_section_layer">
+            <a href="/" id="link_form_button_main"><span id="link_form_button_main_font">&lt;이전</span></a>
+            <button type="reset" id="clear_button" class="link_form_button">내용 지우기</button>
+            <button type="submit" id="submit_button" class="link_form_button">등록</button>
+        </div>
     </div>
 </section>
 

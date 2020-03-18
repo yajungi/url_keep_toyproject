@@ -4,15 +4,16 @@ window.addEventListener("DOMContentLoaded", () => {
     const STATUS_BAD_REQUEST = 400;
     const STATUS_FORBIDDEN = 403;
 
-    const linkSubmitButton = document.querySelector("#submit_button");
-
-    linkSubmitButton.addEventListener("click", () => {
+    document.querySelector("#submit_button").addEventListener("click", () => {
         let linkFormJson = {};
         linkFormJson.url = document.querySelector("#input_link").value;
         linkFormJson.content = document.querySelector("#input_description").value;
 
         const xmlHttpRequest = new XMLHttpRequest();
-        xmlHttpRequest.onreadystatechange = () => {
+        xmlHttpRequest.open("POST", CREATE_LINK_URL);
+        xmlHttpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
+
+        xmlHttpRequest.onload = () => {
             if (xmlHttpRequest.status === STATUS_CREATE && xmlHttpRequest.readyState === xmlHttpRequest.DONE) {
                 alert("LINK가 정상적으로 등록되었습니다.");
                 window.location.href = "/";
@@ -23,8 +24,11 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        xmlHttpRequest.open("POST", CREATE_LINK_URL);
-        xmlHttpRequest.setRequestHeader("Content-type", "application/json; charset=utf-8");
         xmlHttpRequest.send(JSON.stringify(linkFormJson));
+    });
+
+    document.querySelector("#clear_button").addEventListener("click", () => {
+        document.querySelector("#input_link").value = "";
+        document.querySelector("#input_description").value = "";
     });
 })
