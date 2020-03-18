@@ -1,5 +1,6 @@
 package com.jungi.toy.main.controller;
 
+import com.jungi.toy.config.auth.common.LoginUser;
 import com.jungi.toy.config.auth.dto.SessionUser;
 import com.jungi.toy.link.service.LinkService;
 import lombok.RequiredArgsConstructor;
@@ -23,9 +24,7 @@ public class MainController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String getMainPage(Model model) {
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
-
+    public String getMainPage(Model model, @LoginUser SessionUser user) {
         model.addAttribute("links", linkService.findAllLinks(PageRequest.of(FIRST_PAGE, PAGE_SIZE, Sort.by("id").descending())));
 
         if (Objects.nonNull(user)) {
