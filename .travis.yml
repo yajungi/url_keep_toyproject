@@ -9,6 +9,22 @@ branches:
   only:
     - master
 
+before_deploy:
+  - zip -r url-keep-webservice *
+  - mkdir -p deploy
+  - mv url-keep-webservice.zip deploy/url-keep-webservice.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: url-keep-webservice-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
+
 notifications:
   email:
     recipients:
