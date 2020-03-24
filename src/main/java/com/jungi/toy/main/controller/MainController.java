@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpSession;
 import java.util.Objects;
 
 @RequiredArgsConstructor
@@ -21,7 +20,6 @@ public class MainController {
     private static final int PAGE_SIZE = 10;
 
     private final LinkService linkService;
-    private final HttpSession httpSession;
 
     @GetMapping("/")
     public String getMainPage(Model model, @LoginUser SessionUser user) {
