@@ -14,6 +14,8 @@ before_deploy:
   - cp scripts/*.sh before-deploy/
   - cp appspec.yml before-deploy/
   - cp target/*.war before-deploy/
+  - cp src/main/resources/css before-deploy/css
+  - cp src/main/resources/js before-deploy/js
   - cd before-deploy && zip -r before-deploy *
   - cd ../ && mkdir -p deploy
   - mv before-deploy/before-deploy.zip deploy/url-keep-webservice.zip
