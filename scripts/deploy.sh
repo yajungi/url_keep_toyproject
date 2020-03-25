@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REPOSITORY=/home/ec2-user/app/deploy
-PROJECT_NAME=url-keep-webservice
+PROJECT_NAME=toy
 
 echo "> Build file copy"
 
