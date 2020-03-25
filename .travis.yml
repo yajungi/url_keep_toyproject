@@ -10,7 +10,10 @@ branches:
     - master
 
 before_deploy:
-  - cp scripts/*.sh before-deploy/
+  - cd scripts
+  - mv * ../
+  - cp scripts/*.sh /
+  - cd ..
   - zip -r deploy-webservice *
   - mkdir -p deploy
   - mv deploy-webservice.zip deploy/url-keep-webservice.zip
