@@ -5,11 +5,11 @@ PROJECT_NAME=url-keep-webservice
 
 echo "> Build file copy"
 
-cp $REPOSITORY/zip/*.war $REPOSITORY/
+cp $REPOSITORY/zip/target/*.war $REPOSITORY/
 
 echo "> Check current application pid"
 
-CURRENT_PID=$(pgrep -fl url-keep-webservice | grep war | awk '{print $1}')
+CURRENT_PID=$(pgrep -fl url-keep-webservice | grep java | awk '{print $1}')
 
 echo "> Current application pid: $CURRENT_PID"
 
