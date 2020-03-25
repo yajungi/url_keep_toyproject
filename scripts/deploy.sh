@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REPOSITORY=/home/ec2-user/app/deploy
-PROJECT_NAME=url-keep-webservice
+PROJECT_NAME=toy
 
 echo "> Build file copy"
 
@@ -9,7 +9,7 @@ cp $REPOSITORY/zip/target/*.war $REPOSITORY/
 
 echo "> Check current application pid"
 
-CURRENT_PID=$(pgrep -fl url-keep-webservice | grep war | awk '{print $1}')
+CURRENT_PID=$(pgrep -f ${PROJECT_NAME}*.war)
 
 echo "> Current application pid: $CURRENT_PID"
 
@@ -23,7 +23,7 @@ fi
 
 echo "> new application deploy"
 
-WAR_NAME=$(ls -tr $REPOSITORY/*.war | tail -n 1)
+WAR_NAME=$(ls -tr $REPOSITORY/ | grep *.war | tail -n 1)
 
 echo "> WAR Name: $WAR_NAME"
 
