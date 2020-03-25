@@ -1,11 +1,11 @@
 #!/bin/bash
 
 REPOSITORY=/home/ec2-user/app/deploy
-PROJECT_NAME=toy
+PROJECT_NAME=url-keep-webservice
 
 echo "> Build file copy"
 
-cp $REPOSITORY/zip/target/*.war $REPOSITORY/
+cp $REPOSITORY/zip/*.war $REPOSITORY/
 
 echo "> Check current application pid"
 
