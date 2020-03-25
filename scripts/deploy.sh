@@ -9,7 +9,7 @@ cp $REPOSITORY/zip/target/*.war $REPOSITORY/
 
 echo "> Check current application pid"
 
-CURRENT_PID=$(pgrep -fl url-keep-webservice | grep java | awk '{print $1}')
+CURRENT_PID=$(pgrep -fl url-keep-webservice | grep war | awk '{print $1}')
 
 echo "> Current application pid: $CURRENT_PID"
 
@@ -33,4 +33,4 @@ chmod +x $WAR_NAME
 
 echo "> $WAR_NAME 실행"
 
-nohup java -jar -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real $WAR_NAME > $REPOSITORY.nohup.out 2>&1 &
+nohup java -jar -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real $WAR_NAME > $REPOSITORY/nohup.out 2>&1 &
