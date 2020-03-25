@@ -5,7 +5,7 @@ PROJECT_NAME=toy
 
 echo "> Build file copy"
 
-cp $REPOSITORY/zip/*.war $REPOSITORY/
+cp $REPOSITORY/zip/target/*.war $REPOSITORY/
 
 echo "> Check current application pid"
 
