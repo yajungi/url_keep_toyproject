@@ -11,7 +11,7 @@
 
 <body>
 <header>
-    <p class="header_title_text">URL KEEP ver.2</p>
+    <p class="header_title_text">URL KEEP</p>
 </header>
 
 <section>
