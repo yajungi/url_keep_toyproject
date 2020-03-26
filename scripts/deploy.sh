@@ -9,7 +9,7 @@ cp $REPOSITORY/zip/target/*.war $REPOSITORY/
 
 echo "> Check current application pid"
 
-CURRENT_PID=$(pgrep -f ${PROJECT_NAME}*.war)
+CURRENT_PID=$(pgrep -f $REPOSITORY/${PROJECT_NAME}*.war)
 
 echo "> Current application pid: $CURRENT_PID"
 
