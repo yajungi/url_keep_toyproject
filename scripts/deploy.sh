@@ -23,13 +23,13 @@ fi
 
 echo "> new application deploy"
 
-WAR_NAME=$(ls -tr $REPOSITORY | grep .war | tail -n 1)
+WAR_NAME=$(ls -tr $REPOSITORY/*.war | tail -n 1)
 
 echo "> WAR Name: $WAR_NAME"
 
 echo "> $WAR_NAME 실행 권한 추가"
 
-sudo chmod +x $WAR_NAME
+chmod +x $WAR_NAME
 
 echo "> $WAR_NAME 실행"
 
