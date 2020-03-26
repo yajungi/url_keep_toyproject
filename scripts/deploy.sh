@@ -29,7 +29,7 @@ echo "> WAR Name: $WAR_NAME"
 
 echo "> $WAR_NAME 실행 권한 추가"
 
-chmod +x $WAR_NAME
+sudo chmod +x $WAR_NAME
 
 echo "> $WAR_NAME 실행"
 
