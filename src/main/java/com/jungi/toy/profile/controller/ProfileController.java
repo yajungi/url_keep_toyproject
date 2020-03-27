@@ -20,7 +20,7 @@ public class ProfileController {
     public String getProfile() {
         List<String> profiles = Arrays.asList(environment.getActiveProfiles());
 
-        List<String> realProfiles = Arrays.asList("real1", "real2");
+        List<String> realProfiles = Arrays.asList("real", "real8081", "real8082");
 
         String defaultProfile = profiles.isEmpty() ? DEFAULT : profiles.get(FIRST_INDEX);
 
