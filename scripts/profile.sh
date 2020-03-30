@@ -12,9 +12,9 @@ function find_idle_profile() {
 
   if [ ${CURRENT_PROFILE} == real8081 ]
   then
-    IDLE_PROFILE=real8081
-  else
     IDLE_PROFILE=real8082
+  else
+    IDLE_PROFILE=real8081
   fi
 
   echo "${IDLE_PROFILE}"
