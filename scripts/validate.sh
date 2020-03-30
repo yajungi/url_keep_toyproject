@@ -10,7 +10,7 @@ IDLE_PORT=$(find_idle_port)
 
 echo "> Validate Check Start"
 echo "> IDLE_PORT: $IDLE_PORT"
-echo "> curl -s http://localhost:$IDLE_PORT/profile"
+echo "> curl -s http://localhost:$IDLE_PORT/profile "
 
 sleep 10
 
@@ -29,7 +29,7 @@ do
     echo "> Validate Check: ${RESPONSE}"
   fi
 
-  if [ ${COUNT} -eq 10]
+  if [ ${RETRY_COUNT} -eq 10 ]
   then
     echo "> Validate Check 실패"
     echo "> Nginx에 연결하지 않고 배포를 종료합니다."
