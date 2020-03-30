@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/app/deploy/zip/
+    destination: /home/ec2-user/app/nginx_deploy/zip/
     overwrite: yes
 
 permissions:
@@ -12,7 +12,17 @@ permissions:
     group: ec2-user
 
 hooks:
+  AfterInstall:
+    - location: stop.sh
+      timeout: 240
+      runas: ec2-user
+
   ApplicationStart:
     - location: deploy.sh
+      timeout: 240
+      runas: ec2-user
+
+  ValidateService:
+    - location: validate.sh
       timeout: 240
       runas: ec2-user
