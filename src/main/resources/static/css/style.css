@@ -122,3 +122,23 @@ div > input {
 #input_id {
     background-color: aliceblue;
 }
+
+.login_section {
+    height: 40%;
+    padding: 5%;
+    margin: 25% 30% 25% 30%;
+    text-align: center;
+    background-color: aliceblue;
+    border: 1px solid #87CEEB;
+}
+
+.login_li {
+    list-style-type: none;
+    margin: 5%;
+    text-align: center;
+}
+
+.login_button {
+    width: 80%;
+    margin: 5%;
+}
