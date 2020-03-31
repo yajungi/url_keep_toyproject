@@ -10,12 +10,14 @@
     <h2>URL KEEP LOGIN</h2>
     <br/>
     <br/>
+
     <li class="login_li">
         <a href="/oauth2/authorization/google" class="btn btn-secondary active login_button" role="button">Google login</a>
     </li>
     <li class="login_li">
         <a href="/oauth2/authorization/naver" class="btn btn-success active login_button" role="button">Naver login</a>
     </li>
+
 </section>
 </body>
 </html>
