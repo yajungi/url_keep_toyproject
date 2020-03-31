@@ -4,6 +4,7 @@ import com.jungi.toy.config.auth.service.CustomOauth2UserService;
 import com.jungi.toy.user.domain.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -21,18 +22,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable()
             .and()
                 .authorizeRequests()
-                    .antMatchers("/", "/resources/css/**", "/resources/images/**", "/resources/js/**", "/h2-console/**", "/profile")
+                    .antMatchers("/user/login", "/profile", "/h2-console/**")
                             .permitAll()
                     .antMatchers("/api/**")
                         .hasRole(Role.USER.name())
                             .anyRequest()
                                 .authenticated()
             .and()
+                .formLogin()
+                .loginPage("/user/login")
+                .defaultSuccessUrl("/")
+                .permitAll()
+            .and()
                 .logout()
-                    .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/user/login")
             .and()
                 .oauth2Login()
-                    .userInfoEndpoint()
-                        .userService(customOauth2UserService);
+                .userInfoEndpoint()
+                .userService(customOauth2UserService);
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/resources/css/**", "/resources/images/**", "/resources/js/**");
     }
 }
