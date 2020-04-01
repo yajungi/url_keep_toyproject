@@ -1,5 +1,7 @@
 package com.jungi.toy.link.controller;
 
+import com.jungi.toy.config.auth.common.LoginUser;
+import com.jungi.toy.config.auth.dto.SessionUser;
 import com.jungi.toy.link.dto.LinkRequestDto;
 import com.jungi.toy.link.dto.LinkResponseDto;
 import com.jungi.toy.link.service.LinkService;
@@ -8,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.channels.SeekableByteChannel;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,9 +25,9 @@ public class LinkController {
     }
 
     @GetMapping("/api/links")
-    public Map<String, Object> queryLinks(Pageable pageable) {
+    public Map<String, Object> queryLinks(Pageable pageable, @LoginUser SessionUser user) {
         Map<String, Object> linksJsonResponse = new HashMap<>();
-        linksJsonResponse.put("links", linkService.findAllLinks(pageable));
+        linksJsonResponse.put("links", linkService.findAllLinksByEmail(pageable, user.getEmail()));
 
         return linksJsonResponse;
     }

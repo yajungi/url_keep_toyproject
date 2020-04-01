@@ -29,6 +29,15 @@ public class LinkServiceImpl implements LinkService {
     }
 
     @Override
+    public List<LinkResponseDto> findAllLinksByEmail(Pageable pageable, String email) {
+        return linkRepository.findByEmailAndRemoveFlag(email, DEFAULT_REMOVE_FLAG, pageable)
+                .getContent()
+                .stream()
+                .map(LinkResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public LinkResponseDto findLinkById(int id) {
         Link link = linkRepository.findById(id)
                                 .orElseThrow(() -> new IllegalArgumentException("해당 링크가 없습니다. id= " + id));
@@ -57,11 +66,9 @@ public class LinkServiceImpl implements LinkService {
     @Transactional
     public int removeLinkById(int id) {
         Link link = linkRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("해당 링크가 없습니다. id= " + id));
+                                .orElseThrow(() -> new IllegalArgumentException("해당 링크가 없습니다. id= " + id));
 
         link.removeLink();
-
-        System.out.println(link.getRemoveFlag());
 
         return id;
     }

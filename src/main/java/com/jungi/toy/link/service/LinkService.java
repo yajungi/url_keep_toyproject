@@ -9,6 +9,8 @@ import java.util.List;
 public interface LinkService {
     List<LinkResponseDto> findAllLinks(Pageable pageable);
 
+    List<LinkResponseDto> findAllLinksByEmail(Pageable pageable, String email);
+
     LinkResponseDto findLinkById(int id);
 
     void saveLink(LinkRequestDto linkRequestDto);
