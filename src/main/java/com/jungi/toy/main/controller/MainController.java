@@ -23,11 +23,13 @@ public class MainController {
 
     @GetMapping("/")
     public String getMainPage(Model model, @LoginUser SessionUser user) {
-        model.addAttribute("links", linkService.findAllLinks(PageRequest.of(FIRST_PAGE, PAGE_SIZE, Sort.by("id").descending())));
-
         if (Objects.nonNull(user)) {
             model.addAttribute("userName", user.getName());
         }
+
+        model.addAttribute("links", linkService.findAllLinksByEmail(
+                PageRequest.of(FIRST_PAGE, PAGE_SIZE, Sort.by("id").descending()),
+                user.getEmail()));
 
         return MAIN_VIEW;
     }

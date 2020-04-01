@@ -26,10 +26,13 @@ public class Link extends BaseTime {
     @Column(columnDefinition = "boolean default false")
     private Boolean removeFlag = false;
 
+    private String email;
+
     @Builder
-    public Link(String url, String content) {
+    public Link(String url, String content, String email) {
         this.url = url;
         this.content = content;
+        this.email = email;
     }
 
     public void updateLink(String url, String content) {

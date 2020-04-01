@@ -11,17 +11,20 @@ import lombok.NoArgsConstructor;
 public class LinkRequestDto {
     private String url;
     private String content;
+    private String email;
 
     @Builder
-    public LinkRequestDto(String url, String content) {
+    public LinkRequestDto(String url, String content, String email) {
         this.url = url;
         this.content = content;
+        this.email = email;
     }
 
     public Link convertLink() {
         return Link.builder()
                 .url(url)
                 .content(content)
+                .email(email)
                 .build();
     }
 }
