@@ -123,10 +123,12 @@ div > input {
     background-color: aliceblue;
 }
 
+
 .login_section {
     height: 40%;
-    padding: 5%;
-    margin: 25% 30% 25% 30%;
+    width: 30%;
+    padding: 4%;
+    margin: 10% 30% 25% 30%;
     text-align: center;
     background-color: aliceblue;
     border: 1px solid #87CEEB;
@@ -134,11 +136,11 @@ div > input {
 
 .login_li {
     list-style-type: none;
-    margin: 5%;
+    margin: 3%;
     text-align: center;
 }
 
 .login_button {
     width: 80%;
-    margin: 5%;
+    margin: 3%;
 }
