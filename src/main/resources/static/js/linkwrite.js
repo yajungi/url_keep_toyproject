@@ -8,6 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let linkFormJson = {};
         linkFormJson.url = document.querySelector("#input_link").value;
         linkFormJson.content = document.querySelector("#input_description").value;
+        linkFormJson.email = document.querySelector("#input_email").value;
 
         const xmlHttpRequest = new XMLHttpRequest();
         xmlHttpRequest.open("POST", CREATE_LINK_URL);

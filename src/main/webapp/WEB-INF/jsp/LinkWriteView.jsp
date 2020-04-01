@@ -31,6 +31,7 @@
                 </span>
             </p>
             <input type="text" placeholder="네이버 홈페이지" id="input_description" name="description" required/>
+            <input type="hidden" id="input_email" value="${email}"/>
         </div>
         <div class="link_form_middle_section_layer">
             <a href="/" id="link_form_button_main"><span id="link_form_button_main_font">&lt;이전</span></a>
