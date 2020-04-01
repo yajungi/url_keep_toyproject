@@ -25,7 +25,6 @@ public class SecurityConfigTest {
         ResponseEntity<String> response = testRestTemplate.getForEntity("/profile", String.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-
         assertThat(response.getBody()).isEqualTo(expected);
     }
 }
