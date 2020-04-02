@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds">
-    <property name="LOGS_ABSOLUTE_PATH" value="/home/ec2-user/app/nginx-deploy/logs" />
+    <property name="LOGS_ABSOLUTE_PATH" value="./logs" />
     <property name="LOG_FILE" value="${LOGS_ABSOLUTE_PATH}/data.log" />
     <property name="ERR_LOG_FILE_NAME" value="error" />
 
