@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds">
-    <property name="LOGS_ABSOLUTE_PATH" value="deployment-root/deployment-logs" />
+    <property name="LOGS_ABSOLUTE_PATH" value="log" />
     <property name="LOG_FILE" value="${LOGS_ABSOLUTE_PATH}/data.log" />
     <property name="ERR_LOG_FILE_NAME" value="error" />
 
