@@ -46,12 +46,6 @@
         <appender-ref ref="ERROR"/>
     </root>
 
-    <logger name="com.jungi.toy" level="DEBUG" additivity="false">
-        <appender-ref ref="FILE"/>
-        <appender-ref ref="STDOUT"/>
-        <appender-ref ref="ERROR"/>
-    </logger>
-
     <logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
         <appender-ref ref="FILE"/>
         <appender-ref ref="STDOUT"/>
