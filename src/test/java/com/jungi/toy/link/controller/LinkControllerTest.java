@@ -20,6 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 import java.util.List;
 import java.util.stream.IntStream;
@@ -60,6 +61,7 @@ public class LinkControllerTest {
 
         mockMvc = MockMvcBuilders.webAppContextSetup(context)
                     .apply(springSecurity())
+                    .addFilters(new CharacterEncodingFilter("UTF-8", true))
                     .build();
     }
 
@@ -101,7 +103,7 @@ public class LinkControllerTest {
     public void findLinksByEmail() throws Exception {
         //Given
         IntStream.range(0, 30).forEach(i -> {
-            this.generateLink(i);
+            this.generateLink(i + 1);
         });
 
         //When & Then
