@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.LongStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -47,6 +48,23 @@ public class LinkRepositoryTest {
     }
 
     @Test
+    public void countLinks() {
+        //Given
+        String email = "test@test.com";
+        long expectedCount = 30;
+
+        LongStream.range(0, expectedCount).forEach(i -> {
+            this.generateLink(email);
+        });
+
+        //When
+        long count = linkRepository.countByEmailAndRemoveFlag(email, false);
+
+        //Then
+        assertThat(count).isEqualTo(expectedCount);
+    }
+
+    @Test
     public void checkBaseTimeTest() {
         //Given
         String url = "https://github.com";
@@ -66,5 +84,15 @@ public class LinkRepositoryTest {
 
         assertThat(link.getCreateDate()).isAfter(now);
         assertThat(link.getModifyDate()).isAfter(now);
+    }
+
+    private Link generateLink(String email) {
+        Link link = Link.builder()
+                .url("https://github.com")
+                .content("테스트")
+                .email(email)
+                .build();
+
+        return this.linkRepository.save(link);
     }
 }
