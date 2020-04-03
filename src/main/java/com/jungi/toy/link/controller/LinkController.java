@@ -6,7 +6,9 @@ import com.jungi.toy.link.dto.LinkRequestDto;
 import com.jungi.toy.link.dto.LinkResponseDto;
 import com.jungi.toy.link.service.LinkService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +19,8 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 public class LinkController {
+    private static final int PAGE_SIZE = 10;
+
     private final LinkService linkService;
 
     @GetMapping("/api/links/{id}")
@@ -25,9 +29,11 @@ public class LinkController {
     }
 
     @GetMapping("/api/links")
-    public Map<String, Object> queryLinks(Pageable pageable, @LoginUser SessionUser user) {
+    public Map<String, Object> queryLinks(@RequestParam(value = "page") int page, @LoginUser SessionUser user) {
         Map<String, Object> linksJsonResponse = new HashMap<>();
-        linksJsonResponse.put("links", linkService.findAllLinksByEmail(pageable, user.getEmail()));
+        linksJsonResponse.put("links", linkService.findAllLinksByEmail(
+                PageRequest.of(page, PAGE_SIZE, Sort.by("id").descending()),
+                user.getEmail()));
 
         return linksJsonResponse;
     }
