@@ -98,7 +98,7 @@ public class LinkControllerTest {
     }
 
     @Test
-    @TestDescription("30개의 이벤트를 10개 씩 2번째 페이지 조회하기")
+    @TestDescription("30개의 이벤트 중 2번째 페이지 조회하기")
     @WithMockUser(username = "user", roles="USER")
     public void findLinksByEmail() throws Exception {
         //Given
@@ -110,8 +110,6 @@ public class LinkControllerTest {
         this.mockMvc.perform(get("/api/links")
                         .contentType(MediaType.APPLICATION_JSON)
                         .param("page", "1")
-                        .param("size", "10")
-                        .param("sort", "id,desc")
                         .session(session))
                 .andDo(print())
                 .andExpect(status().isOk());
