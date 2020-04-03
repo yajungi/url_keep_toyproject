@@ -13,6 +13,8 @@ public interface LinkService {
 
     LinkResponseDto findLinkById(int id);
 
+    long countByEmail(String email);
+
     void saveLink(LinkRequestDto linkRequestDto);
 
     int updateLink(int id, LinkRequestDto linkRequestDto);
