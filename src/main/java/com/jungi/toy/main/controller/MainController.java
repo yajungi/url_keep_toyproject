@@ -31,6 +31,8 @@ public class MainController {
                 PageRequest.of(FIRST_PAGE, PAGE_SIZE, Sort.by("id").descending()),
                 user.getEmail()));
 
+        model.addAttribute("count", linkService.countByEmail(user.getEmail()));
+
         return MAIN_VIEW;
     }
 }

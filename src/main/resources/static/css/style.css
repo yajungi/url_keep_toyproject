@@ -77,9 +77,8 @@ div > input {
     padding: 0;
     list-style-type: none;
     position: relative;
-    border-top: 1px solid #87CEEB;
-    border-bottom: 1px solid #87CEEB;
     border-left: 1px solid #87CEEB;
+    border-bottom: 1px solid #87CEEB;
     display: inline-block;
     height: auto;
 }
@@ -92,6 +91,7 @@ div > input {
     padding: 2px 1px;
     position: relative;
     border-right: 1px solid #87CEEB;
+    border-top: 1px solid #87CEEB;
 }
 
 .link li {
@@ -143,4 +143,23 @@ div > input {
 .login_button {
     width: 80%;
     margin: 3%;
+}
+
+.button_section {
+    margin: 2%;
+}
+
+.button_direction {
+    background-color: #87CEEB;
+    border: 2px solid aliceblue;
+    margin-left: 45%;
+    height: 50px;
+    width: 100px;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+#count_view {
+    text-align: right;
+    margin-right: 5%;
 }

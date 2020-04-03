@@ -10,4 +10,6 @@ public interface LinkRepository extends JpaRepository<Link, Integer> {
     Page<Link> findByRemoveFlag(boolean removeFlag, Pageable pageable);
 
     Page<Link> findByEmailAndRemoveFlag(String email, boolean removeFlag, Pageable pageable);
+
+    long countByEmailAndRemoveFlag(String email, boolean removeFlag);
 }

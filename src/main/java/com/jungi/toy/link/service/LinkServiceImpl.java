@@ -46,6 +46,11 @@ public class LinkServiceImpl implements LinkService {
     }
 
     @Override
+    public long countByEmail(String email) {
+        return linkRepository.countByEmailAndRemoveFlag(email, DEFAULT_REMOVE_FLAG);
+    }
+
+    @Override
     @Transactional
     public void saveLink(LinkRequestDto linkRequestDto) {
         linkRepository.save(linkRequestDto.convertLink());
