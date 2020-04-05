@@ -30,14 +30,12 @@
     <br/>
 
     <div class="link_table">
-        <ul class="title">
+        <ul class="link" id="links_list">
             <li class="col no">NO</li>
             <li class="url">URL</li>
             <li class="content">내용</li>
             <li class="time">최종수정시간</li>
-        </ul>
 
-        <ul class="link" id="links_list">
             <c:forEach var="link" items="${links}" varStatus="linkStatus">
                 <li class="col no"><a href="/user/links/${link.id}">${linkStatus.count}</a></li>
                 <li class="url"><a href=${link.url}>${link.url}</a></li>
