@@ -112,12 +112,12 @@ public class LinkServiceTest {
         String content = "깃헙홈페이지";
 
         //When & Then
-        linkRepository.save(Link.builder()
+        Link link = linkRepository.save(Link.builder()
                 .url(url)
                 .content(content)
                 .build());
 
-        LinkResponseDto expectedLink = linkService.findLinkById(1);
+        LinkResponseDto expectedLink = linkService.findLinkById(link.getId());
 
         assertThat(expectedLink.getUrl()).isEqualTo(url);
         assertThat(expectedLink.getContent()).isEqualTo(content);
