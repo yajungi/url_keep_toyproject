@@ -61,11 +61,9 @@ public class LinkServiceTest {
         //Given
         IntStream.range(0, 10).forEach(i -> {
             this.generateLinkByEmail(i + 1, expectedEmail);
-        });
 
-        IntStream.range(10, 30).forEach(i -> {
             //default email = "test@test.com"
-            this.generateLink(i + 1);
+            this.generateLink(i + 11);
         });
 
         int page = 0;
@@ -119,8 +117,32 @@ public class LinkServiceTest {
 
         LinkResponseDto expectedLink = linkService.findLinkById(link.getId());
 
-        assertThat(expectedLink.getUrl()).isEqualTo(url);
-        assertThat(expectedLink.getContent()).isEqualTo(content);
+        assertThat(url).isEqualTo(expectedLink.getUrl());
+        assertThat(content).isEqualTo(expectedLink.getContent());
+    }
+
+    @Test
+    @TestDescription("사용자가 등록한 링크를 삭제")
+    public void removeLinkByIdTest() {
+        //Given
+        String url = "https://github.com";
+        String content = "깃헙홈페이지";
+        String email = "test@test.com";
+
+        //When & Then
+        Link link = linkRepository.save(Link.builder()
+                .url(url)
+                .content(content)
+                .email(email)
+                .build());
+
+        linkService.removeLinkById(link.getId());
+
+        long expectedCount = 0;
+
+        long linkCount = linkService.countByEmail(email);
+
+        assertThat(linkCount).isEqualTo(expectedCount);
     }
 
     private Link generateLink(int index) {
